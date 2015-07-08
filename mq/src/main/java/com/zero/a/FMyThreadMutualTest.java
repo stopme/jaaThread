@@ -15,25 +15,21 @@ class FMyThreadMutual extends Thread {
     public FMyThreadMutual(FPrintMessage printMessage,String message) {
         this.printMessage = printMessage;
         this.message=message;
+        super.setName(message);
     }
  
     @Override
     public void run() {
-        printMessage.show(message);
-    }
+    	    printMessage.show("threadName = "+this.getName()+" ## value = "+message);
+		}
 }
  
 class FPrintMessage {
- 
-    public synchronized void show(String msg) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(msg);
-            try {
-                wait();
-                notify();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+	public String mes ="";
+    public synchronized  void show(String msg) {
+    	  this.mes =msg;
+    		for (int i = 0; i < 100; i++) {
+              System.out.println(this.mes);
+           }
+    	}
     }
-}
