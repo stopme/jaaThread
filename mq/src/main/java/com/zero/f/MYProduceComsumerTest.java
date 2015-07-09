@@ -1,4 +1,4 @@
-package com.zero.f.doit;
+package com.zero.f;
 
 import java.util.Random;
 
