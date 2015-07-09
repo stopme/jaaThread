@@ -11,7 +11,7 @@ public class WriteReadLock {
 		new ReadThread(data).start();
 		new ReadThread(data).start();
 		new ReadThread(data).start();
-		new WriteThread(data, "adfgkjh");
+		new WriteThread(data, "adfgkjh").start();;
 	}
 
 }
